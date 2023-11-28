@@ -33,20 +33,23 @@ int main(){
 	else{ cout<<"0"<<endl; }
 	 
 	cout<<"Assignment Question 4"<<endl; //program to find largest integer closest to a known integer
-	int N,d,z=2;
-	cout<<"Please enter the integer against whom the largest prime number is to be found:"<<endl;
-	cin>>N;
-     while(z<=(N/2)){
-    z++;
-     if(N%z!=0){ cout<<"The Largest Prime Number is: "<<N<<endl; break;}  //if remainder of N / z is not 0, then N itself is a prime number
-     else{ for(d=3;d<N;d++){
-     if(d%z!=0){ cout<<" "<<d;	 } } //if any number from 1 to N when divided by z does not have a remainder of 0, that number is prime. 
-     cout<<endl;										//the largest of those would be the result
-     cout<<endl;
-     cout<<endl;
-	 cout<<"The Largest Prime Number is the Last Number of the above sequence."<<endl; break; }
-	 } 
-	   cout<<endl;
+	 int X,Y= 0;
+    cout << "Input an integer value: "<<endl;
+    cin>>X; //input an integer value by the user
+    for (int d= X;d>= 1;d--)   //use a for loop that will run from one till the number
+    {
+        for (int h = 2; h<=(d-1); h++)  //for each value of d, divide it by h, which will be every integer from 2 to h-1
+        {
+            if (d % h == 0) 
+                Y++; //if d is divisible by h, incrementally add to the value of Y
+        }
+        if (Y==0)  //if Y is 0, then the number was prime
+        {
+            cout<<"The Greatest Prime Number is: "<<d<< endl; //
+            break;
+        }
+        Y = 0;
+    } 
 	
 	cout<<"Assignment Question 6"<<endl; //program to do division without using the / operator
 	int divid,divis,quot,remain;
@@ -78,10 +81,10 @@ int main(){
 	cout<<endl;
     
     cout<<"Assignment Question 9"<<endl; //check if the sum of a triplet in an array is equal to a known integer
-    int asum,wasp,m,s,t,X;
+    int asum,wasp,m,s,t,Q;
  cout<<"NOTE:If condition is true, '1' will be printed 3 times. If condition is false, it will be printed twice."<<endl;
-    cout<<"Enter the integer X:"<<endl;
-    cin>>X;
+    cout<<"Enter the integer:"<<endl;
+    cin>>Q;
     cout<<"Enter the number of elements in the array:"<<endl;    //input an integer and an array from the user
     cin>>m;
 	int arr[m];
@@ -101,9 +104,9 @@ int main(){
 	 s= l+1;
 	 t= m-1;
 	 while(s<t){ asum= arr[l] + arr[s] + arr[t];   //add the first element, the next element that incrementally increased by (s), and the last element
-	 if (asum>X){t--; }                                                  //which incrementally decreased by 1 (t)and continue the loop until s<t
-	 if (asum<X){ s++; } 
-	 if (asum=X){ cout<<"1"; break;  }  //111 will be printed if statement is true, 11 if not
+	 if (asum>Q){t--; }                                                  //which incrementally decreased by 1 (t)and continue the loop until s<t
+	 if (asum<Q){ s++; } 
+	 if (asum=Q){ cout<<"1"; break;  }  //111 will be printed if statement is true, 11 if not
 	 } }
 
    
